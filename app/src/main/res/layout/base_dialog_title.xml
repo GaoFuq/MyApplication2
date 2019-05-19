@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#8B814C"
+    >
+    <TextView
+        android:id="@+id/tv_team"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="队伍"
+        android:layout_centerInParent="true"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        />
+
+    <!-- 关闭 按钮-->
+    <TextView
+        android:id="@+id/tv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"
+        android:background="#8B864E"/>
+</RelativeLayout>

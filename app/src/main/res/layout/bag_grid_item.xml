@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_margin="5dp"
+
+    >
+   <ImageView
+       android:id="@+id/iv_bag_grid_item_img"
+       android:layout_width="60dp"
+       android:layout_height="60dp"
+       android:src="@drawable/baoshi1"
+       android:scaleType="fitXY"
+       android:background="@drawable/bag_grid_item_bg"/>
+    <TextView
+        android:id="@+id/tv_bag_grid_item_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:paddingLeft="3dp"
+        android:textSize="14sp"
+        android:paddingRight="3dp"
+        android:textColor="#fff"
+        android:background="@drawable/bag_grid_item_num_bg"
+        android:layout_alignBottom="@+id/iv_bag_grid_item_img"
+        android:layout_alignRight="@+id/iv_bag_grid_item_img"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="3dp"
+        />
+</RelativeLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/team_info_bg"
+   >
+<include layout="@layout/base_dialog_title"/>
+    <View
+        android:id="@+id/v_divi"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#000"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <include layout="@layout/team_info" android:id="@+id/team_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#EEDC82"
+        android:padding="10dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/team_info"
+        android:background="#666"
+        />
+
+    <!-- 技能描述 -->
+        <TextView
+            android:id="@+id/skill"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:text="技能:"
+            android:background="#CDBE70"
+            android:padding="5dp"
+            android:layout_below="@+id/team_info"
+            android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/tv_skill"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#CDBE70"
+        android:text="摸一下就要死要活"
+        android:padding="5dp"
+        android:layout_toRightOf="@+id/skill"
+        android:layout_below="@+id/team_info"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/tv_skill"
+        android:background="#666"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_team_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_skill">
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>
+</ScrollView>
+</LinearLayout>

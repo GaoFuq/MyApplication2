@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+<LinearLayout
+    android:id="@+id/ll_left"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="30dp"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/iv_team_header_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/team_info_bg"
+        android:src="@drawable/ld"/>
+    <TextView
+        android:id="@+id/tv_team_header_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="李丹"
+        android:textStyle="bold"
+        android:padding="5dp"
+        android:textSize="16sp"
+        />
+</LinearLayout>
+    <RelativeLayout
+        android:id="@+id/ll_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/ll_left"
+        android:layout_toEndOf="@+id/ll_left" >
+        <!-- 加点设置 -->
+            <TextView
+                android:id="@+id/tv_add_once_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="一次+1点"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"/>
+            <TextView
+                android:id="@+id/tv_add_once_5"
+                android:layout_alignRight="@+id/tv_hp_point_add_num"
+                android:layout_width="wrap_content"
+                android:gravity="right"
+                android:layout_height="wrap_content"
+                android:text="一次+5点"
+                android:paddingBottom="3dp"
+                android:layout_toRightOf="@+id/tv_add_once_1"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#666"
+            android:layout_below="@+id/tv_add_once_1"
+            android:layout_alignRight="@+id/tv_add_once_5"
+            />
+        <!-- 加点设置 end-->
+
+        <!-- 生命值 以这个为基准-->
+        <TextView
+            android:id="@+id/tv_hp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="生命值"
+            android:textStyle="bold"
+            android:layout_below="@+id/tv_add_once_1"/>
+        <TextView
+            android:id="@+id/tv_hp_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="1000"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/tv_add_once_1"
+            android:layout_toRightOf="@+id/tv_hp"/>
+        <TextView
+            android:id="@+id/tv_hp_num_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="+"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/tv_add_once_1"
+            android:layout_toRightOf="@+id/tv_hp_num"/>
+        <TextView
+            android:id="@+id/tv_hp_point_add_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="5"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/tv_add_once_1"
+            android:layout_toRightOf="@+id/tv_hp_num_add"/>
+
+
+
+        <!-- 物攻 -->
+        <TextView
+            android:id="@+id/tv_physical_attack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:textStyle="bold"
+            android:text="物攻"
+            android:layout_below="@+id/tv_hp"/>
+        <TextView
+            android:id="@+id/tv_physical_attack_num"
+            android:text="10"
+            android:layout_below="@+id/tv_hp"
+            style="@style/TeamPropertyNum"/>
+        <TextView
+            android:id="@+id/tv_physical_attack_num_add"
+            android:layout_below="@+id/tv_hp"
+            style="@style/TeamPropertyNumAdd"
+             />
+        <TextView
+            android:id="@+id/tv_physical_attack_point_add_num"
+            android:text="5"
+            android:layout_below="@+id/tv_hp"
+            style="@style/TeamPropertyPointAddNum"
+            />
+
+
+
+        <!-- 法术 -->
+        <TextView
+            android:id="@+id/tv_magic_attack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="法术"
+            android:textStyle="bold"
+            android:layout_below="@+id/tv_physical_attack"/>
+        <TextView
+            android:id="@+id/tv_magic_attack_num"
+            style="@style/TeamPropertyNum"
+            android:text="50"
+            android:layout_below="@+id/tv_physical_attack"/>
+        <TextView
+            android:id="@+id/tv_magic_attack_num_add"
+            style="@style/TeamPropertyNumAdd"
+            android:layout_below="@+id/tv_physical_attack"/>
+        <TextView
+            android:id="@+id/tv_magic_attack_point_add_num"
+            style="@style/TeamPropertyPointAddNum"
+            android:text="6"
+            android:layout_below="@+id/tv_physical_attack"/>
+
+        <!-- 护甲 -->
+        <TextView
+            android:id="@+id/tv_Armor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="护甲"
+            android:textStyle="bold"
+            android:layout_below="@+id/tv_magic_attack"/>
+        <TextView
+            android:id="@+id/tv_Armor_num"
+            style="@style/TeamPropertyNum"
+            android:text="20"
+            android:layout_below="@+id/tv_magic_attack"/>
+        <TextView
+            android:id="@+id/tv_Armor_num_add"
+            style="@style/TeamPropertyNumAdd"
+            android:layout_below="@+id/tv_magic_attack"/>
+        <TextView
+            android:id="@+id/tv_Armor_point_add_num"
+            style="@style/TeamPropertyPointAddNum"
+            android:text="2"
+            android:layout_below="@+id/tv_magic_attack"/>
+
+        <!-- 魔抗 -->
+        <TextView
+            android:id="@+id/tv_magic_resistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="魔抗"
+            android:textStyle="bold"
+            android:layout_below="@+id/tv_Armor"/>
+        <TextView
+            android:id="@+id/tv_magic_resistance_num"
+            style="@style/TeamPropertyNum"
+            android:text="10"
+            android:layout_below="@+id/tv_Armor"/>
+        <TextView
+            android:id="@+id/tv_magic_resistance_num_add"
+            style="@style/TeamPropertyNumAdd"
+            android:layout_below="@+id/tv_Armor"/>
+        <TextView
+            android:id="@+id/tv_magic_resistance_point_add_num"
+            style="@style/TeamPropertyPointAddNum"
+            android:text="1"
+            android:layout_below="@+id/tv_Armor"/>
+
+        <!-- 闪避 -->
+        <TextView
+            android:id="@+id/tv_dodge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="闪避"
+            android:textStyle="bold"
+            android:layout_below="@+id/tv_magic_resistance"/>
+        <TextView
+            android:id="@+id/tv_dodge_num"
+            style="@style/TeamPropertyNum"
+            android:text="10%"
+            android:layout_below="@+id/tv_magic_resistance"/>
+        <TextView
+            android:id="@+id/tv_dodge_num_add"
+            style="@style/TeamPropertyNumAdd"
+            android:layout_below="@+id/tv_magic_resistance"/>
+        <TextView
+            android:id="@+id/tv_dodge_point_add_num"
+            style="@style/TeamPropertyPointAddNum"
+            android:text="10"
+            android:layout_below="@+id/tv_magic_resistance"/>
+
+        <!-- 暴击 -->
+        <TextView
+            android:id="@+id/tv_crit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="3dp"
+            android:text="暴击"
+            android:textStyle="bold"
+            android:layout_below="@+id/tv_dodge"/>
+        <TextView
+            android:id="@+id/tv_crit_num"
+            style="@style/TeamPropertyNum"
+            android:text="5%"
+            android:layout_below="@+id/tv_dodge"/>
+        <TextView
+            android:id="@+id/tv_crit_num_add"
+            style="@style/TeamPropertyNumAdd"
+            android:layout_below="@+id/tv_dodge"/>
+        <TextView
+            android:id="@+id/tv_crit_point_add_num"
+            style="@style/TeamPropertyPointAddNum"
+            android:text="5"
+            android:layout_below="@+id/tv_dodge"/>
+    </RelativeLayout>
+</RelativeLayout>

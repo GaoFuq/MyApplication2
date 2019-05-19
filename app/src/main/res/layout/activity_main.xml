@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ypz"
+    tools:context=".MainActivity">
+
+    <!--title_bar-->
+    <include layout="@layout/title_bar" android:id="@+id/top_title"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp">
+        <TextView
+            android:id="@+id/tv_team"
+            style="@style/BottomNav"
+            android:layout_width="121dp"
+            android:layout_marginBottom="8dp"
+            android:text="队伍"
+            />
+        <TextView
+            android:id="@+id/tv_bag"
+            style="@style/BottomNav"
+            android:layout_width="121dp"
+            android:layout_marginBottom="8dp"
+            android:text="背包"
+            />
+        <TextView
+            android:id="@+id/tv_shop"
+            style="@style/BottomNav"
+            android:layout_width="121dp"
+            android:layout_marginBottom="8dp"
+            android:text="商店"
+            />
+        <TextView
+            android:id="@+id/tv_shoujiang"
+            style="@style/BottomNav"
+            android:layout_width="121dp"
+            android:layout_marginBottom="8dp"
+            android:text="抽奖"
+            />
+    </LinearLayout>
+
+
+    <!-- 底部导航栏 结束-->
+</RelativeLayout>
