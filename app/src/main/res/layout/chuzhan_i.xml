@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="60dp"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#CD9B1D"
+    android:layout_marginRight="10dp"
+    android:layout_marginEnd="10dp">
+    <!-- 出战武将  1号位-->
+    <ImageView
+        android:id="@+id/iv_chuzhan_i"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/head_girl_4"
+        />
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="赵云"
+    android:textSize="10sp"
+    android:textColor="#000"
+    android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="休息"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="3dp"
+        android:textColor="#32CD32"
+        android:gravity="center"
+        android:background="#FFC1C1"
+        />
+</LinearLayout>
+

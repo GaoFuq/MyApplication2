@@ -22,6 +22,12 @@
         <activity android:name=".activity.BagDialogActivity"
             android:theme="@style/MyDialogActivityTheme"
             />
+        <activity android:name=".activity.PrepareBattleDialogActivity"
+            android:theme="@style/MyDialogActivityTheme"
+            />
+        <activity android:name=".activity.BattleDialogActivity"
+            android:theme="@style/MyDialogActivityTheme"
+            />
     </application>
 
 </manifest>

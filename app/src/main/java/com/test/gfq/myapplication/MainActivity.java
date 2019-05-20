@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.test.gfq.myapplication.activity.BagDialogActivity;
+import com.test.gfq.myapplication.activity.BattleDialogActivity;
 import com.test.gfq.myapplication.activity.TeamDialogActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +36,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,BagDialogActivity.class));
+            }
+        });
+
+
+        TextView recruit = findViewById(R.id.tv_recruit);
+        recruit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //startActivity(new Intent(MainActivity.this,PrepareBattleDialogActivity.class));
+                startActivity(new Intent(MainActivity.this,BattleDialogActivity.class));
             }
         });
 

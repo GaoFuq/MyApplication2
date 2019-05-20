@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@drawable/team_info_bg"
+    >
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#8B6969"
+        android:layout_alignParentTop="true"
+        >
+        <TextView
+            android:id="@+id/tv_prepare_battle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="准备战斗"
+            android:layout_centerInParent="true"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="20dp"
+            />
+        <TextView
+            android:id="@+id/tv_Attributes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="属性点10"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            />
+        <!-- 关闭 按钮-->
+        <TextView
+            android:id="@+id/tv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"
+            android:background="#8B864E"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/v_divi"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#000"
+        android:layout_below="@+id/top"
+        />
+    <TextView
+        android:id="@+id/tv_chuzhan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CD8500"
+        android:text="出战"
+        android:layout_below="@+id/v_divi"
+        android:textSize="16sp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:paddingLeft="20dp"
+        />
+
+    <!-- 出战列表-->
+    <HorizontalScrollView
+        android:id="@+id/hs_chuzhan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_chuzhan"
+        android:background="#8B5A00"
+        android:padding="5dp"
+        >
+        <LinearLayout
+            android:id="@+id/ll_chuzhan_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:gravity="center"
+
+            >
+            <!-- 出战武将  1号位-->
+            <include layout="@layout/chuzhan_i"
+                android:id="@+id/iv_chuzhan_1"
+                />
+
+            <!-- 出战武将  2号位-->
+            <include layout="@layout/chuzhan_i"
+                android:id="@+id/iv_chuzhan_2"
+                />
+            <!-- 出战武将  3号位-->
+            <include layout="@layout/chuzhan_i"
+                android:id="@+id/iv_chuzhan_3"
+                />
+
+            <!-- 出战武将  4号位-->
+            <include layout="@layout/chuzhan_i"
+                android:id="@+id/iv_chuzhan_4"
+                />
+
+            <!-- 出战武将  5号位-->
+            <include layout="@layout/chuzhan_i"
+                android:id="@+id/iv_chuzhan_5"
+                />
+
+            <!-- 出战武将  6号位-->
+            <include layout="@layout/chuzhan_i"
+                android:id="@+id/iv_chuzhan_6"
+                />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <!-- 休息区 -->
+    <TextView
+        android:id="@+id/tv_rest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CD8500"
+        android:text="休息区"
+        android:layout_below="@+id/hs_chuzhan"
+        android:textSize="16sp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:paddingLeft="20dp"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/tv_rest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>
