@@ -10,8 +10,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.test.gfq.myapplication.MyInterface.OnRvItemClickListener;
 import com.test.gfq.myapplication.R;
 import com.test.gfq.myapplication.adapter.BagAdapter1;
+import com.test.gfq.myapplication.adapter.test.TestAdapter;
 import com.test.gfq.myapplication.bean.BagItemInfo;
 
 import java.util.ArrayList;
@@ -65,6 +67,8 @@ public class BagDialogActivity extends BaseDialogActivity implements View.OnClic
     }*/
     @Override
     void bindValues() {
+        //TODO 1.查询数据库的背包信息
+        // TODO 2.取出来显示在背包界面
 
         final ArrayList<BagItemInfo> list = new ArrayList<>();
         for(int i=0;i<20;i++){
@@ -74,31 +78,16 @@ public class BagDialogActivity extends BaseDialogActivity implements View.OnClic
             bagItemInfo.setMaterial_num(i);
             bagItemInfo.setMaterial_sell_price(200);
             bagItemInfo.setMaterial_buy_price(400);
-            bagItemInfo.setMaterial_description("hhhhhhhhhhhhhhhhhhhhhhhhhh");
+            bagItemInfo.setMaterial_description("hhhhhhhhhhhhhhhhhhhhhhhhhh"+i);
             list.add(bagItemInfo);
         }
-          /*   adapter = new BagAdapter(list) {
-            @Override
-            public int getLayoutId(int layoutResId) {
-                return R.layout.bag_grid_item;
-            }
-
-            @Override
-            public void convert(VH holder, final BagItemInfo data, final int position) {
-               holder.setImgResId(R.drawable.baoshi1,R.id.iv_bag_grid_item_img).setOnClickListener(BagDialogActivity.this);
-               holder.setText(data.getMaterial_num()+"",R.id.tv_bag_grid_item_num);
-            }
-        };*/
-
-          adapter = new BagAdapter1(this,list);
-        //实现接口，并重写方法，实现内容 给Adapter添加监听器
-        //adapter.setOnRVItemClickListener(this);
 
 
+          //adapter = new BagAdapter1(this,list);
+        TestAdapter testAdapter = new TestAdapter(this);
 
 
         // LinearLayoutManager layoutManager = new LinearLayoutManager(this );//设置布局管理器
-
         // 竖直方向的网格布局管理器，每行四个Item
         GridLayoutManager layoutManager = new GridLayoutManager(this, 4, OrientationHelper.VERTICAL, false);
         rv_bag_grid.setLayoutManager(layoutManager);
@@ -112,13 +101,20 @@ public class BagDialogActivity extends BaseDialogActivity implements View.OnClic
         rv_bag_grid.setItemAnimator( new DefaultItemAnimator());//设置增加或删除条目的动画
 
 
+        adapter.setOnRvItemClickListener(new OnRvItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position, Object o) {
+                final BagItemInfo bagItemInfo = list.get(position);
+                //Toast.makeText(BagDialogActivity.this,bagItemInfo.getMaterial_name(),Toast.LENGTH_SHORT).show();
+                iv_left_material_name.setText(bagItemInfo.getMaterial_name());
+                iv_left_material_description.setText(bagItemInfo.getMaterial_description());
+                tv_material_sell_price.setText("出售："+bagItemInfo.getMaterial_sell_price()+"银两");
+                tv_material_buy_price.setText("购买："+bagItemInfo.getMaterial_buy_price()+"银两");
+            }
+        });
+
 
     }
-
-  /*  @Override
-    public void onItemClick(int pos) {
-        Toast.makeText(this,"pos",Toast.LENGTH_SHORT).show();
-    }*/
 
     @Override
     void setListeners() {

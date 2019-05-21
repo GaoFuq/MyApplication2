@@ -1,9 +1,7 @@
 package com.test.gfq.myapplication.MyInterface;
 
-public interface OnRVItemClickListener {
-    //定义点击事件的回调
-    void onItemClick(int pos);
+import android.view.View;
 
-
+public interface OnRvItemClickListener<T> {
+    void onItemClick(View view, int position,T t);
 }
-

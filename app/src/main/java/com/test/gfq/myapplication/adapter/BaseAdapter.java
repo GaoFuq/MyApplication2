@@ -1,18 +1,6 @@
 package com.test.gfq.myapplication.adapter;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.support.v7.widget.RecyclerView;
-import android.util.SparseArray;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.test.gfq.myapplication.MyInterface.OnRVItemClickListener;
-
-import java.util.List;
+/*
 
 public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseAdapter.VH>{
     public List<T> mDatas;
@@ -33,11 +21,13 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseAdapter.VH
 
 
 
-    /**
+    */
+/**
      *
      * @param layoutResId item的布局文件资源id
      * @return item的布局文件资源id
-     */
+     *//*
+
     public abstract int getLayoutId(int layoutResId);
 
     public T getOtherTypeData(int position){
@@ -63,13 +53,17 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseAdapter.VH
 
     public static class VH extends RecyclerView.ViewHolder{
 
-        /**
+        */
+/**
          * item布局里面的所有控件的稀松数组集合
-         */
+         *//*
+
         private SparseArray<View> mViews;//稀松数组，更节省内存
-        /**
+        */
+/**
          * item的布局视图view
-         */
+         *//*
+
         private View mConvertView;
         public VH(View v){
             super(v);
@@ -113,14 +107,16 @@ public abstract class BaseAdapter<T> extends RecyclerView.Adapter<BaseAdapter.VH
             return view;
         }
 
-        /**
+        */
+/**
          *
          * @param value 从holder里面获取的数据： holder.newString(data.getMaterial_name());
          * @return itemBean 对象里面的String类型的数据
-         */
+         *//*
+
         public  String newString(String value){
             return  value;
         }
 
     }
-}
+}*/
