@@ -57,9 +57,9 @@ public class BaseHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    public void setImageResource(@IdRes int id, int imgid) {
-        if (id!=0){
-            ((ImageView) this.getView(id)).setImageResource(imgid);
+    public void setImageResource(@IdRes int viewId, int imgResId) {
+        if (viewId!=0){
+            ((ImageView) this.getView(viewId)).setImageResource(imgResId);
         }
 
     }

@@ -1,3 +1,4 @@
+/*
 package com.test.gfq.myapplication.adapter;
 
 import android.content.Context;
@@ -70,10 +71,13 @@ public class BagAdapter1 extends RecyclerView.Adapter<BagHolder> {
     }
 
 
-   /* private void setRVItemView(int position){
+   */
+/* private void setRVItemView(int position){
         View view =
     }
     public View getRVItemView(int position){
         return
-    }*/
+    }*//*
+
 }
+*/

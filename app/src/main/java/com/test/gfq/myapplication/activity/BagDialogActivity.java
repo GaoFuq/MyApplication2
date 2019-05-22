@@ -10,10 +10,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.test.gfq.myapplication.MyInterface.OnRvItemClickListener;
 import com.test.gfq.myapplication.R;
-import com.test.gfq.myapplication.adapter.BagAdapter1;
-import com.test.gfq.myapplication.adapter.test.TestAdapter;
+import com.test.gfq.myapplication.adapter.test.BaseAdapter1;
+import com.test.gfq.myapplication.adapter.test.BaseHolder;
 import com.test.gfq.myapplication.bean.BagItemInfo;
 
 import java.util.ArrayList;
@@ -37,7 +36,9 @@ public class BagDialogActivity extends BaseDialogActivity implements View.OnClic
     private String materialDescription;
     private int materialSellPrice;
     private int materialBuyPrice;
-    private BagAdapter1 adapter;
+   // private BagAdapter1 adapter;
+
+    BaseAdapter1<BagItemInfo> adapter;
     @Override
     public int setMyContentView(Context context, int layout_res_id) {
         return super.setMyContentView(context, R.layout.bag_dialog_activity);
@@ -76,16 +77,41 @@ public class BagDialogActivity extends BaseDialogActivity implements View.OnClic
             bagItemInfo.setImgResId(R.drawable.baoshi1);
             bagItemInfo.setMaterial_name("宝石"+i);
             bagItemInfo.setMaterial_num(i);
-            bagItemInfo.setMaterial_sell_price(200);
-            bagItemInfo.setMaterial_buy_price(400);
+            bagItemInfo.setMaterial_sell_price(200+i);
+            bagItemInfo.setMaterial_buy_price(400+i);
             bagItemInfo.setMaterial_description("hhhhhhhhhhhhhhhhhhhhhhhhhh"+i);
             list.add(bagItemInfo);
         }
 
 
           //adapter = new BagAdapter1(this,list);
-        TestAdapter testAdapter = new TestAdapter(this);
+       adapter = new BaseAdapter1<BagItemInfo>(this) {
+            @Override
+            public int getLayoutId() {
+                return R.layout.bag_grid_item;
+            }
 
+            @Override
+            public void onBindItemHolder(BaseHolder holder, int position) {
+              final BagItemInfo bagItemInfo =  getDataList().get(position);
+               holder.setImageResource(R.id.iv_bag_grid_item_img,bagItemInfo.getImgResId());
+               holder.setText(R.id.tv_bag_grid_item_num,bagItemInfo.getMaterial_num()+"");
+                holder.getView(R.id.iv_bag_grid_item_img).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        iv_left_material_name.setText(bagItemInfo.getMaterial_name());
+                        iv_left_material_description.setText(bagItemInfo.getMaterial_description());
+                        tv_material_sell_price.setText("出售："+bagItemInfo.getMaterial_sell_price()+"银两");
+                        tv_material_buy_price.setText("购买："+bagItemInfo.getMaterial_buy_price()+"银两");
+                    }
+                });
+
+            }
+
+
+        };
+
+        adapter.setDataList(list);//用来刷新时,重新设置数据
 
         // LinearLayoutManager layoutManager = new LinearLayoutManager(this );//设置布局管理器
         // 竖直方向的网格布局管理器，每行四个Item
@@ -101,7 +127,7 @@ public class BagDialogActivity extends BaseDialogActivity implements View.OnClic
         rv_bag_grid.setItemAnimator( new DefaultItemAnimator());//设置增加或删除条目的动画
 
 
-        adapter.setOnRvItemClickListener(new OnRvItemClickListener() {
+       /* adapter.setOnRvItemClickListener(new OnRvItemClickListener() {
             @Override
             public void onItemClick(View view, int position, Object o) {
                 final BagItemInfo bagItemInfo = list.get(position);
@@ -111,7 +137,7 @@ public class BagDialogActivity extends BaseDialogActivity implements View.OnClic
                 tv_material_sell_price.setText("出售："+bagItemInfo.getMaterial_sell_price()+"银两");
                 tv_material_buy_price.setText("购买："+bagItemInfo.getMaterial_buy_price()+"银两");
             }
-        });
+        });*/
 
 
     }
