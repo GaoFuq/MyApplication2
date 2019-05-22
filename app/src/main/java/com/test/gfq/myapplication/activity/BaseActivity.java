@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
@@ -18,19 +17,14 @@ import android.widget.Toast;
 public abstract class BaseActivity extends AppCompatActivity {
     private static boolean isExit = false;
     private int screenW,screenH;
-    private float scaleW,scaleH;
+    private double scaleW,scaleH;
     private Context mContext;
 
-    public AlertDialog mDailog;
-    public BaseActivity(){
+    public abstract double setScaleW();
 
-    }
+    public abstract double setScaleH();
 
-    public BaseActivity(Context mContext,int scaleW,int scaleH){
-       this.mContext = mContext;
-       this.scaleW = scaleW;
-       this.scaleH = scaleH;
-    }
+
     @SuppressLint("HandlerLeak")
     static Handler mHandler = new Handler() {
 
@@ -51,13 +45,15 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         setContentView(getLayoutResId());
 
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-        screenW = metrics.widthPixels;
-        screenH = metrics.heightPixels;
-        WindowManager.LayoutParams p = getWindow().getAttributes();
-        p.width = (int)(screenW*scaleW);
-        p.height = (int)(screenH*scaleH);
-        getWindow().setAttributes(p);
+            DisplayMetrics metrics = getResources().getDisplayMetrics();
+            screenW = metrics.widthPixels;
+            screenH = metrics.heightPixels;
+            WindowManager.LayoutParams p = getWindow().getAttributes();
+            p.width = (int)(screenW*setScaleW());
+            p.height = (int)(screenH*setScaleH());
+            getWindow().setAttributes(p);
+
+
 
 
 
@@ -66,14 +62,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         setListeners();
     }
 
-    abstract void findViews();
+    public abstract void findViews();
 
-    abstract void bindValues();
+    public abstract void bindValues();
 
-    abstract void setListeners();
+    public abstract void setListeners();
 
     public void toast(String msg){
-        Toast.makeText(mContext,msg,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,msg,Toast.LENGTH_SHORT).show();
     }
 
 
@@ -113,8 +109,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private void exit() {
         if (!isExit) {
             isExit = true;
-            Toast.makeText(getApplicationContext(), "再按一次退出程序",
-                    Toast.LENGTH_SHORT).show();
+            toast("再按一次退出程序");
             // 利用handler延迟发送更改状态信息
             mHandler.sendEmptyMessageDelayed(0, 2000);
         } else {

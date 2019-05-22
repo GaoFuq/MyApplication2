@@ -50,7 +50,7 @@ public class BagAdapter1 extends RecyclerView.Adapter<BagHolder> {
             bagHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onRvItemClickListener.onItemClick(bagHolder.itemView, position);
+                    onRvItemClickListener.onItemClick(bagHolder.itemView, position,new BagItemInfo());
                 }
             });
             final BagItemInfo bagItemInfo = list.get(position);

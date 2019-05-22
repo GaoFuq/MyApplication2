@@ -13,7 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.test.gfq.myapplication.activity.BagDialogActivity;
+import com.test.gfq.myapplication.activity.BagActivity;
 import com.test.gfq.myapplication.activity.TeamDialogActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
         bag.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,BagDialogActivity.class));
+               // startActivity(new Intent(MainActivity.this,BagDialogActivity.class));
+                startActivity(new Intent(MainActivity.this,BagActivity.class));
             }
         });
 
